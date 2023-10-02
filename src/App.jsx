@@ -32,7 +32,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className='py-2 bg-gray-800'>
+      <div className='py-2 bg-gray-800' style={{position: 'sticky',top:0,zIndex:2}}>
         <Filter filterData={filterData}  category={category} setCategory={setCategory}/>
       </div>
       <div>

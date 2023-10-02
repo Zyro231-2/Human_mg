@@ -46,7 +46,7 @@ export default function Card(props) {
                     )}
                     <h5 className="font-bold py-4 text-[20px]">{course.title}</h5>
                     <p className="card-title">
-                        {course.description.length > 100 ? course.description.substr(0, 180) : course.description}
+                        {course.description.length > 100 ? course.description.substr(0, 100)+"..." : course.description}
                     </p>
                     <div className="flex justify-center">
                     <button onClick={copyToClipboard} className="border-2 hover:border-gray-500 hover:text-gray-500 p-1 w-[200px] mt-3 items-center rounded-xl">Copy Description</button>

@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-
+import "./style.css"
 export default function Filter(props) {
   let category = props.category;
   let setCategory = props.setCategory;
@@ -11,12 +11,12 @@ export default function Filter(props) {
   }
 
   return (
-    <div className="py-4 text-center">
+    <div className="py-4 text-center " >
       {props.filterData.map((data) => {
         const isSelected = data.tittle === category; // Check if the button is selected
 
         return (
-          <button
+          <button 
             onClick={() => clickHandler(data.tittle)}
             key={data.id}
             className={`ml-8 px-2 py-1 rounded-md ${
@@ -24,7 +24,7 @@ export default function Filter(props) {
                 ? "bg-blue-500 text-white" 
                 : "bg-gray-800 text-white" 
             }`}
-          >
+           >
             {data.tittle}
           </button>
         );

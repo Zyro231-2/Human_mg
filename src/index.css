@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cards{
+    display:flex;
+    flex-direction: row;
+}
+.card_box{
+    border:1px solid black;
+}
+
+@media screen and (max-width:768px){
+    .cards{
+        flex-direction: column;
+    }
+    .card_box{
+        width: 90%;
+    }
+    .title{
+        margin-left: 13px;
+    }
+}
+
+

@@ -19,7 +19,7 @@ export default function Filter(props) {
           <button
             onClick={() => clickHandler(data.tittle)}
             key={data.id}
-            className={`ml-8 px-2 py-1 rounded-md ${
+            className={`title ml-8 px-2 py-1 rounded-md ${
               isSelected
                 ? "bg-blue-500 text-white" 
                 : "bg-gray-800 text-white" 

@@ -27,7 +27,7 @@ export default function Card(props) {
     }
 
     return (
-        <div key={course.id} className="relative h-[430px] w-[30%] bg-gray-700 rounded-md">
+        <div key={course.id} className="card_box relative h-[430px] w-[30%] bg-gray-700 rounded-md">
             <div className="">
                 <div className="relative">
                     <img className="h-[60%] w-[100%] rounded-md" src={course.image.url} alt={course.image.alt} />

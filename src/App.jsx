@@ -5,6 +5,7 @@ import {filterData,apirUrl} from './data'
 import Cards from './Cards';
 import Spinner from './Spinner';
 import {toast} from "react-toastify"
+import Footer from './Footer';
 
 function App() {
   const [courses,setcourses] =useState('');
@@ -40,6 +41,8 @@ function App() {
           Loading ? (<Spinner/>) : (<Cards courses={courses} category={category}/>) 
         }
       </div>
+      <Footer />
+
     </>
   )
 }

@@ -1,3 +1,19 @@
-export default function Navbar() {
-    return <div className="text-center py-3 bg-gray-900 text-white text-3xl font-semibold">Top Courses</div>
+import React from 'react';
+import './Navbar.css';  // Import CSS file
+
+const Navbar = () => {
+  return (
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-logo">Logo</div>
+        <ul className="navbar-links">
+          <li className="navbar-link">Home</li>
+          <li className="navbar-link">About</li>
+          <li className="navbar-link">Contact</li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
+
+export default Navbar;

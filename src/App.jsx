@@ -1,47 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Filter from './Filter';
-import {filterData,apirUrl} from './data'
+import { filterData, apirUrl } from './data';
 import Cards from './Cards';
 import Spinner from './Spinner';
-import {toast} from "react-toastify"
+import { toast } from 'react-toastify';
+import './App.css';
 
 function App() {
-  const [courses,setcourses] =useState('');
-  const [Loading,setLoading] =useState(true);
-  const [category,setCategory]=useState(filterData[0].tittle)
+  const [courses, setCourses] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [category, setCategory] = useState(filterData[0].tittle);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  // To fetch the courses and store them in courses array not in objects
   async function fetchData() {
     try {
-    setLoading(true)
-      let response=await fetch(apirUrl);
-      let data= await response.json();
-      setcourses(data.data)
+      setLoading(true);
+      let response = await fetch(apirUrl);
+      let data = await response.json();
+      setCourses(data.data);
     } catch (error) {
-      return(<div>{error}/</div>)
+      console.error(error);
+      toast.error('Error fetching data');
+    } finally {
+      setLoading(false);
     }
-    setLoading(false)
   }
 
-  // to run in first render
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
-  },[])
+  }, []);
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <>
       <Navbar />
-      <div className='py-2 bg-gray-800' style={{position: 'sticky',top:0,zIndex:2}}>
-        <Filter filterData={filterData}  category={category} setCategory={setCategory}/>
+      <div className='py-2 bg-gray-800' style={{ position: 'sticky', top: 0, zIndex: 2 }}>
+        <input
+          type="text"
+          placeholder="Search for courses"
+          value={searchTerm}
+          onChange={handleSearch}
+          className="search-bar"
+        />
+        <Filter filterData={filterData} category={category} setCategory={setCategory} />
       </div>
       <div>
-        {
-          Loading ? (<Spinner/>) : (<Cards courses={courses} category={category}/>) 
-        }
+        {loading ? <Spinner /> : <Cards courses={courses} category={category} searchTerm={searchTerm} />}
       </div>
     </>
-  )
+  );
 }
 
 export default App;

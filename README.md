@@ -92,3 +92,19 @@ If you want to add new projects to the Course App, please follow these guideline
 4. Make sure to include clear documentation on how to use and test your project within its folder.
 
 5. Create a pull request to add your project to the main repository.
+## Project Admin 😎
+
+<table>
+  <tr>
+<td align="center"><a href="https://github.com/Zyro231-2"><img src="https://avatars.githubusercontent.com/u/75005434?v=4" width="100px;" alt=""/><br /><sub><b>
+Zyro millan</b></sub></a></td>
+  </tr>
+</table>
+
+##  Project Contributors ⭐
+<table align="center">
+<tr>
+<td>
+<a href="https://github.com/Zyro231-2/Human_mg/graphs/contributors" align="center">
+  <img src="https://contrib.rocks/image?repo=Zyro231-2/Human_mg" /> 
+</a>

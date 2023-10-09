@@ -29,7 +29,7 @@ export default function Card(props) {
   return (
     <div
       key={course.id}
-      className="relative overflow-hidden min-h-[400px] max-h-[450px] md:w-[30%] sm:mx-1 mx-3 max-w-[400px] bg-gray-700 rounded-md"
+      className="relative overflow-hidden min-h-[400px] max-h-[450px] md:w-[30%] sm:mx-1 mx-3 w-[400px] min-w[100px] bg-gray-700 rounded-md"
     >
       <div>
         <div className="relative">
@@ -53,11 +53,9 @@ export default function Card(props) {
           </div>
         </div>
         <div>
-          <h5 className="font-bold py-4 text-[20px] pl-2">{course.title}</h5>
-          <p className="card-title pl-2 pr-1">
-            {course.description.length > 100
-              ? course.description.substr(0, 100) + "..."
-              : course.description}
+          <h5 className="font-bold py-4 text-[20px] p-2 overflow-hidden truncate">{course.title}</h5>
+          <p className="card-title pl-2 pr-1 overflow-hidden line-clamp-2">
+          {course.description}
           </p>
         </div>
       </div>

@@ -4,6 +4,7 @@ import Filter from './Filter';
 import {filterData,apirUrl} from './data'
 import Cards from './Cards';
 import Spinner from './Spinner';
+import Footer from './Footer';
 import {toast} from "react-toastify"
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           Loading ? (<Spinner/>) : (<Cards courses={courses} category={category}/>) 
         }
       </div>
+      <Footer/>
     </>
   )
 }

@@ -4,8 +4,8 @@ import Filter from "./Filter";
 import { filterData, apirUrl } from "./data";
 import Cards from "./Cards";
 import Spinner from "./Spinner";
+import Footer from "./Footer";
 import { toast } from "react-toastify";
-import "./App.css";
 
 function App() {
   const [courses, setcourses] = useState("");
@@ -49,6 +49,7 @@ function App() {
           <Cards courses={courses} category={category} />
         )}
       </div>
+      <Footer />
     </>
   );
 }

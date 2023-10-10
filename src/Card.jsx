@@ -4,12 +4,16 @@ import copy from "copy-to-clipboard";
 import { useState } from "react";
 
 export default function Card(props) {
+  const [copied, setCopied] = useState(false);
   const { likedCourses, setLikedCourses, course } = props;
-  const [copyText, secoptText] = useState(course.description);
+  const [copyText, setCopyText] = useState(course.description);
 
   const copyToClipboard = () => {
     copy(copyText);
-    alert(`You have copied "${copyText}"`);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 700);
   };
 
   function clickHandler() {
@@ -38,7 +42,7 @@ export default function Card(props) {
             src={course.image.url}
             alt={course.image.alt}
           />
-          <div className=" relative bottom-5">
+          <div className="relative bottom-5">
             {likedCourses.includes(course.id) ? (
               <FcLike
                 onClick={clickHandler}
@@ -64,9 +68,11 @@ export default function Card(props) {
 
       <button
         onClick={copyToClipboard}
-        className="absolute bottom-0 border-t-2 py-2  bg-white text-black mt-5 hover:bg-slate-700 hover:text-white p-1 w-full  pl-0 items-center "
+        className={`absolute bottom-0 border-t-2 py-2 text-xl font-semibold bg-white text-black mt-5 hover:bg-slate-700 hover:text-white p-1 w-full pl-0 items-center ${
+          copied ? "bg-green-600 text-white hover:bg-green-600 hover:text-white" : ""
+        }`}
       >
-        Copy Description
+        {copied ? "Copied" : "Copy Description"}
       </button>
     </div>
   );

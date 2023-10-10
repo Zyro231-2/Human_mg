@@ -5,10 +5,14 @@ import { useState } from "react";
 
 export default function Card({  likedCourses, setLikedCourses, course:{id, title, image:{url, alt}, description} }) {
   const [copyText, secoptText] = useState(description);
+  const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
     copy(copyText);
-    alert(`You have copied "${copyText}"`);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 800);
   };
 
   function clickHandler() {
@@ -61,9 +65,11 @@ export default function Card({  likedCourses, setLikedCourses, course:{id, title
 
       <button
         onClick={copyToClipboard}
-        className="bottom-0 border-t-2 py-2  bg-white text-black mt-5 hover:bg-slate-700 hover:text-white p-1 w-full  pl-0 items-center "
+        className={`bottom-0 border-t-2 py-2 text-lg font-semibold bg-white text-black mt-5 hover:bg-slate-700 hover:text-white p-1 w-full pl-0 items-center ${
+          copied ? "bg-green-600 text-black hover:bg-green-600 hover:text-white" : ""
+        }`}
       >
-        Copy Description
+        {copied ? "Copied" : "Copy Description"}
       </button>
     </div>
   );

@@ -14,7 +14,7 @@ export default function Footer()
   }, []);
 
   return (
-    <footer className='flex flex-row bg-gray-900 text-gray-500 w-screen justify-evenly py-10'>
+    <footer className='flex flex-row bg-gray-900 text-gray-500 w-100 justify-evenly py-10'>
       <div className='flex flex-col items-start'>
         <div>
           {/* hacktoberfest logo section */}

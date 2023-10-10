@@ -6,6 +6,7 @@ import Cards from "./Cards";
 import Spinner from "./Spinner";
 import Footer from "./Footer";
 import { toast } from "react-toastify";
+import ScrollTop from "./ScrollTop";
 
 function App() {
   const [courses, setcourses] = useState([]);
@@ -66,6 +67,7 @@ function App() {
           />
         )}
       </div>
+      <ScrollTop/>
       <Footer />
     </>
   );

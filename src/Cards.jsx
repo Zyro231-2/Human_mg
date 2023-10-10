@@ -1,29 +1,15 @@
 import { useState } from "react";
 import Card from "./Card";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 
-export default function Cards(props) {
-    let category=props.category;
-    let courses=props.courses;
+export default function Cards({category, courses}) {    
     const [likedCourses,setLikedCourses]=useState([])
-    function getCourse() {
-        if (category=="All") {
-            let allCourses=[];    
-            Object.values(courses).forEach(array=>{
-                array.forEach(singleCourse=>{
-                    allCourses.push(singleCourse);
-                })
-            })  
-            return allCourses;
-        }
-        else{
-        return courses[category];
-       }
-    }
+    
     return(
-        <div className="pt-2 pb-20 flex sm:flex-row flex-col justify-center items-center flex-wrap text-white bg-gray-800 gap-x-3 gap-y-10">
-            {getCourse().map((course)=>{
+        <div className="pl-10 pr-10 pt-2 pb-20 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  justify-center place-items-center justify-center text-white bg-gray-800 gap-10 gap-x-10">
+            {courses.map((course)=>{
                 return(
                     <Card key={course.id} course={course} likedCourses={likedCourses} setLikedCourses={setLikedCourses}/>
                 )

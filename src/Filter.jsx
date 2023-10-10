@@ -1,9 +1,6 @@
 import { toast } from "react-toastify";
 
-export default function Filter(props) {
-  let category = props.category;
-  let setCategory = props.setCategory;
-
+export default function Filter({filterData, category, setCategory }) {
   function clickHandler(title) {
     toast.dismiss();
     toast.success("Moved to " + title);
@@ -12,7 +9,7 @@ export default function Filter(props) {
 
   return (
     <div className="py-4 text-center">
-      {props.filterData.map((data) => {
+      {filterData.map((data) => {
         const isSelected = data.tittle === category; // Check if the button is selected
 
         return (
@@ -20,11 +17,8 @@ export default function Filter(props) {
             onClick={() => clickHandler(data.tittle)}
             key={data.id}
             className={`ml-8 px-2 py-1 rounded-md ${
-              isSelected
-                ? "bg-blue-500 text-white" 
-                : "bg-gray-800 text-white" 
-            }`}
-          >
+              isSelected ? "bg-blue-500 text-white" : "bg-gray-800 text-white"
+            }`}>
             {data.tittle}
           </button>
         );

@@ -53,31 +53,7 @@ Now you have the Course App up and running locally.
 
 ## Contributing
 
-We welcome contributions from the community. If you'd like to contribute to the project, follow these steps:
-
-1. Fork the repository on GitHub.
-
-2. Clone your forked repository to your local machine.
-
-3. Create a new branch for your contribution:
-
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-4. Make your changes and commit them with descriptive commit messages.
-
-5. Push your changes to your forked repository:
-
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-6. Create a pull request from your branch to the main repository.
-
-7. Wait for your pull request to be reviewed and merged.
-
-Thank you for contributing to the Course App!
+We welcome contributions from the community to enhance Human mg further. If you're interested in contributing, please read our [Contributing Guidelines](CONTRIBUTING.md) for detailed information on how to get started.
 
 ## Adding Projects
 

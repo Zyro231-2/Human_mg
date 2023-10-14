@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import copy from "copy-to-clipboard";
 import { useState } from "react";
 
-export default function Card({  likedCourses, setLikedCourses, course:{id, title, image:{url, alt}, description} }) {
+export default function Card({ likedCourses, setLikedCourses, course: { id, title, image: { url, alt }, description } }) {
   const [copyText, secoptText] = useState(description);
   const [copied, setCopied] = useState(false);
 
@@ -65,9 +65,8 @@ export default function Card({  likedCourses, setLikedCourses, course:{id, title
 
       <button
         onClick={copyToClipboard}
-        className={`bottom-0 border-t-2 py-2 text-lg font-semibold bg-white text-black mt-5 hover:bg-slate-700 hover:text-white p-1 w-full pl-0 items-center ${
-          copied ? "bg-green-600 text-black hover:bg-green-600 hover:text-white" : ""
-        }`}
+        className={`bottom-0 border-t-2 py-2 text-lg font-semibold bg-white text-black mt-5 hover:bg-slate-700 hover:text-white p-1 w-full pl-0 items-center ${copied ? "bg-green-600 text-black hover:bg-green-600 hover:text-white" : ""
+          }`}
       >
         {copied ? "Copied" : "Copy Description"}
       </button>

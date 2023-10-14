@@ -45,9 +45,9 @@ Once you have these prerequisites installed, follow these steps to set up the pr
 4. Start the development server:
 
    ```bash
-   npm start
+   npm run dev
    # OR
-   yarn start
+   yarn dev
    ```
 
 5. Open your web browser and go to `http://localhost:3000` to access the Course App.

@@ -85,9 +85,16 @@ function App() {
           />
         ) : (
           <Cards // if category is something else then use filter
-            courses={courses.filter((each_course) => {
-              return each_course.category === category // return each matched category course data
-            })}
+            courses={
+              searchValue ?
+                filteredCourses.filter((each_course) => {
+                  return each_course.category === category // return each matched category course data
+                })
+                :
+                courses.filter((each_course) => {
+                  return each_course.category === category // return each matched category course data
+                })
+            }
             category={category}
           />
         )}

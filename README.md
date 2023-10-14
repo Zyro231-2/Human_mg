@@ -2,6 +2,9 @@
 
 Welcome to the Course App repository! This application is designed to help users access and manage online courses. Whether you're a developer, designer, or anyone interested in contributing, this README will guide you through how to contribute to the project.
 
+
+branch= [![Netlify Status](https://api.netlify.com/api/v1/badges/5ce2480f-20a2-4ace-ae1c-dad8e71c16af/deploy-status)](https://app.netlify.com/sites/luminous-llama-e9fccb/deploys)
+
 ## Table of Contents
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)

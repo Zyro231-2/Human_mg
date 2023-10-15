@@ -64,15 +64,15 @@ function App() {
         className="bg-gray-800"
         style={{ position: "sticky", top: 0, zIndex: 2 }}
       >
-        <Filter
-          filterData={filterData}
-          category={category}
-          setCategory={setCategory}
-        />
         <SearchBox
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           handleClick={handleSearchClick}
+        />
+        <Filter
+          filterData={filterData}
+          category={category}
+          setCategory={setCategory}
         />
       </div>
       <div>

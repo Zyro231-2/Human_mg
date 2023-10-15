@@ -5,11 +5,15 @@ import Cards from "./Cards"
 import Spinner from "./Spinner"
 import Footer from "./Footer"
 import { toast } from "react-toastify"
+import SearchBox from "./SearchBox"
+import { data } from "autoprefixer"
 
 function App() {
   const [courses, setcourses] = useState([])
+  const [filteredCourses, setFilteredCourses] = useState([])
   const [Loading, setLoading] = useState(true)
   const [category, setCategory] = useState(filterData[0].tittle)
+  const [searchValue, setSearchValue] = useState("")
 
   // To fetch the courses and store them in courses array not in objects
   async function fetchData() {
@@ -26,12 +30,27 @@ function App() {
           allCourses.push(singleCourse)
         })
       })
-      console.log(allCourses)
+
       setcourses(allCourses)
+
     } catch (error) {
       return <div>{error}/</div>
     }
     setLoading(false)
+  }
+
+  const handleSearchClick = () => {
+    if (courses) {
+      if (searchValue) {
+        const filteredCourses = courses.filter((course) => {
+          if (course.title.toLowerCase().includes(searchValue.toLowerCase())) {
+            return course;
+          }
+        })
+
+        setFilteredCourses(filteredCourses);
+      }
+    }
   }
 
   // to run in first render
@@ -43,7 +62,13 @@ function App() {
     <>
       <div
         className="bg-gray-800"
-        style={{ position: "sticky", top: 0, zIndex: 2 }}>
+        style={{ position: "sticky", top: 0, zIndex: 2 }}
+      >
+        <SearchBox
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          handleClick={handleSearchClick}
+        />
         <Filter
           filterData={filterData}
           category={category}
@@ -55,14 +80,21 @@ function App() {
           <Spinner />
         ) : category === "All" ? ( // if category is all then populate all
           <Cards
-            courses={courses}
+            courses={searchValue ? filteredCourses : courses}
             category={category}
           />
         ) : (
           <Cards // if category is something else then use filter
-            courses={courses.filter((each_course) => {
-              return each_course.category === category // return each matched category course data
-            })}
+            courses={
+              searchValue ?
+                filteredCourses.filter((each_course) => {
+                  return each_course.category === category // return each matched category course data
+                })
+                :
+                courses.filter((each_course) => {
+                  return each_course.category === category // return each matched category course data
+                })
+            }
             category={category}
           />
         )}

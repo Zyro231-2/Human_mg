@@ -8,7 +8,7 @@ export default function Cards({category, courses}) {
     const [likedCourses,setLikedCourses]=useState([])
     
     return(
-        <div className="pl-10 pr-10 pt-2 pb-20 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  justify-center place-items-center justify-center text-white bg-gray-800 gap-10 gap-x-10">
+        <div className="pl-10 pr-10 pt-2 pb-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-center place-items-center text-white bg-gray-800 gap-10 gap-x-10">
             {courses.map((course)=>{
                 return(
                     <Card key={course.id} course={course} likedCourses={likedCourses} setLikedCourses={setLikedCourses}/>
